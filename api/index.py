@@ -215,7 +215,5 @@ def delete_record(id):
         return jsonify({"status": "deleted"})
     return jsonify({"status": "not found"}), 404
 
-app = Flask(__name__)
-
 handler = app
 
