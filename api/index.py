@@ -105,17 +105,7 @@ def image_upload_model(file, prompt_text):
 # ────────────────────────────────────────────────
 
 
-@app.route("/", defaults={"path": ""})
-@app.route("/<path:path>")
-def serve_static(path):
-    print(f"Requested path: /{path}")
-    full_path = os.path.join("static", "index.html" if path == "" else path)
-    print(f"Trying to serve: {os.path.abspath(full_path)}")
-    print(f"File exists? {os.path.exists(full_path)}")
 
-    if path == "":
-        return send_from_directory("static", "index.html")
-    return send_from_directory("static", path)
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
