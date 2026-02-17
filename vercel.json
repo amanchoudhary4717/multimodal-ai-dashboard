@@ -1,10 +1,14 @@
 {
   "version": 2,
+  "builds": [
+    { "src": "api/index.py", "use": "@vercel/python" },
+    { "src": "static/**", "use": "@vercel/static" }
+  ],
   "routes": [
-    { "src": "^/$", "dest": "/static/index.html" },
     { "src": "^/analyze$", "dest": "/api/index.py" },
     { "src": "^/history$", "dest": "/api/index.py" },
     { "src": "^/delete/(.*)", "dest": "/api/index.py" },
-    { "src": "^/static/(.*)", "dest": "/static/$1" }
+    { "src": "^/$", "dest": "/static/index.html" },
+    { "src": "^/(.*)", "dest": "/static/$1" }
   ]
 }
